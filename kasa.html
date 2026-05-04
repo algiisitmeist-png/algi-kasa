@@ -19,7 +19,7 @@ body {
   -webkit-font-smoothing: antialiased;
   overscroll-behavior: none;
 }
-.conn-bar { display: none; background: #f59e0b; color: #fff; text-align: center; font-size: 12px; font-weight: 600; padding: 6px; letter-spacing: 0.3px; }
+.conn-bar { display: none; background: #f59e0b; color: #fff; text-align: center; font-size: 12px; font-weight: 600; padding: 6px; }
 .conn-bar.goster { display: block; }
 .conn-bar.bagli { background: #30a953; }
 .header { background: #fff; border-bottom: 0.5px solid rgba(0,0,0,0.12); padding: 14px 16px 0; position: sticky; top: 0; z-index: 50; padding-top: max(14px, env(safe-area-inset-top)); }
@@ -30,7 +30,7 @@ body {
 .kasa-ozet-pill .etiket { font-size: 10px; color: #8e8e93; font-weight: 500; }
 .kasa-ozet-pill .tutar { font-size: 17px; font-weight: 700; color: #1c1c1e; }
 .sekme-bar { display: flex; }
-.sekme { flex: 1; text-align: center; font-size: 13px; font-weight: 500; padding: 10px 0; color: #8e8e93; border-bottom: 2px solid transparent; cursor: pointer; -webkit-user-select: none; user-select: none; }
+.sekme { flex: 1; text-align: center; font-size: 12px; font-weight: 500; padding: 10px 4px; color: #8e8e93; border-bottom: 2px solid transparent; cursor: pointer; -webkit-user-select: none; user-select: none; }
 .sekme.aktif { color: #1c1c1e; border-bottom-color: #1c1c1e; }
 .ozet-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; padding: 14px 14px 0; }
 .ozet-kart { background: #fff; border-radius: 14px; padding: 14px 16px; }
@@ -38,7 +38,8 @@ body {
 .ozet-kart .deger { font-size: 18px; font-weight: 700; }
 .renk-giris { color: #30a953; }
 .renk-cikis { color: #e0392b; }
-.ekran { padding: 14px; display: none; padding-bottom: max(14px, env(safe-area-inset-bottom)); }
+.renk-uyari { color: #f59e0b; }
+.ekran { padding: 14px; display: none; padding-bottom: max(80px, env(safe-area-inset-bottom)); }
 .ekran.aktif { display: block; }
 .bolum-bas { font-size: 11px; color: #8e8e93; margin-bottom: 8px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
 .kullanici-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-bottom: 16px; }
@@ -60,9 +61,34 @@ body {
 .np-btn { height: 62px; font-size: 22px; font-weight: 400; background: #fff; color: #1c1c1e; border: none; border-radius: 14px; cursor: pointer; -webkit-user-select: none; user-select: none; font-family: inherit; display: flex; align-items: center; justify-content: center; box-shadow: 0 1px 3px rgba(0,0,0,0.07); transition: background 0.1s; -webkit-appearance: none; }
 .np-btn:active { background: #e5e5ea; }
 .np-btn.sil { font-size: 18px; color: #636366; }
-.kaydet-btn { width: 100%; padding: 17px; font-size: 16px; font-weight: 700; border-radius: 14px; border: none; background: #1c1c1e; color: #fff; cursor: pointer; font-family: inherit; -webkit-appearance: none; transition: opacity 0.15s; }
-.kaydet-btn:active { opacity: 0.8; }
-.kaydet-btn:disabled { opacity: 0.4; }
+.ana-btn { width: 100%; padding: 17px; font-size: 16px; font-weight: 700; border-radius: 14px; border: none; background: #1c1c1e; color: #fff; cursor: pointer; font-family: inherit; -webkit-appearance: none; transition: opacity 0.15s; }
+.ana-btn:active { opacity: 0.8; }
+.ana-btn:disabled { opacity: 0.4; }
+.ana-btn.sari { background: #f59e0b; }
+.ana-btn.yesil { background: #30a953; }
+.ana-btn.kirmizi { background: #e0392b; }
+
+/* SAYIM ekranı */
+.sayim-bilgi-kart { background: #fff; border-radius: 14px; padding: 16px; margin-bottom: 16px; }
+.sayim-bilgi-satir { display: flex; justify-content: space-between; align-items: center; padding: 6px 0; border-bottom: 0.5px solid #f2f2f7; }
+.sayim-bilgi-satir:last-child { border-bottom: none; }
+.sayim-bilgi-satir .label { font-size: 13px; color: #8e8e93; }
+.sayim-bilgi-satir .val { font-size: 14px; font-weight: 700; }
+.fark-kart { border-radius: 14px; padding: 16px; margin-bottom: 16px; text-align: center; display: none; }
+.fark-kart.goster { display: block; }
+.fark-kart .fark-label { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px; }
+.fark-kart .fark-tutar { font-size: 28px; font-weight: 700; }
+.fark-kart.pozitif { background: #edfaf2; }
+.fark-kart.pozitif .fark-label { color: #1a7a35; }
+.fark-kart.pozitif .fark-tutar { color: #1a7a35; }
+.fark-kart.negatif { background: #fef0ef; }
+.fark-kart.negatif .fark-label { color: #a82821; }
+.fark-kart.negatif .fark-tutar { color: #a82821; }
+.fark-kart.sifir { background: #f2f2f7; }
+.fark-kart.sifir .fark-label { color: #636366; }
+.fark-kart.sifir .fark-tutar { color: #636366; }
+
+/* İşlemler */
 .yukleniyor { text-align: center; padding: 3rem 1rem; color: #8e8e93; font-size: 14px; }
 .spinner { width: 24px; height: 24px; border: 2px solid #e5e5ea; border-top-color: #1c1c1e; border-radius: 50%; animation: spin 0.7s linear infinite; margin: 0 auto 12px; }
 @keyframes spin { to { transform: rotate(360deg); } }
@@ -71,9 +97,10 @@ body {
 .filtre-pill { flex-shrink: 0; padding: 7px 16px; border-radius: 20px; border: 1px solid #e5e5ea; background: #fff; font-size: 13px; font-weight: 500; color: #636366; cursor: pointer; -webkit-user-select: none; user-select: none; transition: all 0.15s; font-family: inherit; }
 .filtre-pill.aktif { background: #1c1c1e; color: #fff; border-color: #1c1c1e; }
 .islem-kart { background: #fff; border-radius: 14px; padding: 14px 16px; margin-bottom: 8px; display: flex; align-items: center; gap: 12px; }
-.islem-ikon { width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 700; flex-shrink: 0; }
+.islem-ikon { width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; flex-shrink: 0; }
 .ikon-giris { background: #edfaf2; color: #1a7a35; }
 .ikon-cikis { background: #fef0ef; color: #a82821; }
+.ikon-sayim { background: #fef3c7; color: #92400e; }
 .islem-bilgi { flex: 1; min-width: 0; }
 .islem-sahip { font-size: 14px; font-weight: 600; }
 .islem-aciklama { font-size: 12px; color: #8e8e93; margin-top: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
@@ -103,6 +130,7 @@ body {
   </div>
   <div class="sekme-bar">
     <div class="sekme aktif" onclick="sekmeGec('ekle', this)">İşlem Ekle</div>
+    <div class="sekme" onclick="sekmeGec('sayim', this)">Kasa Sayımı</div>
     <div class="sekme" onclick="sekmeGec('islemler', this)">İşlemler</div>
   </div>
 </div>
@@ -118,10 +146,11 @@ body {
   </div>
 </div>
 
+<!-- İŞLEM EKLE -->
 <div class="ekran aktif" id="ekran-ekle">
   <div style="margin-top:14px;">
     <div class="bolum-bas">İşlem Sahibi</div>
-    <div class="kullanici-grid" id="kullanici-grid"></div>
+    <div class="kullanici-grid" id="kullanici-grid-ekle"></div>
   </div>
   <div class="tip-row">
     <div class="tip-btn secili-giris" id="btn-giris" onclick="tipSec('giris')">+ Giriş</div>
@@ -131,34 +160,77 @@ body {
     <input type="text" id="aciklama-input" placeholder="Açıklama (isteğe bağlı)" inputmode="text" autocomplete="off">
   </div>
   <div class="tutar-goster" id="tutar-goster">0,00 ₺</div>
-  <div class="numpad">
-    <button class="np-btn" onclick="np('1')">1</button>
-    <button class="np-btn" onclick="np('2')">2</button>
-    <button class="np-btn" onclick="np('3')">3</button>
-    <button class="np-btn" onclick="np('4')">4</button>
-    <button class="np-btn" onclick="np('5')">5</button>
-    <button class="np-btn" onclick="np('6')">6</button>
-    <button class="np-btn" onclick="np('7')">7</button>
-    <button class="np-btn" onclick="np('8')">8</button>
-    <button class="np-btn" onclick="np('9')">9</button>
-    <button class="np-btn" onclick="np(',')">","</button>
-    <button class="np-btn" onclick="np('0')">0</button>
-    <button class="np-btn sil" onclick="np('sil')">⌫</button>
+  <div class="numpad" id="numpad-ekle">
+    <button class="np-btn" onclick="np('ekle','1')">1</button>
+    <button class="np-btn" onclick="np('ekle','2')">2</button>
+    <button class="np-btn" onclick="np('ekle','3')">3</button>
+    <button class="np-btn" onclick="np('ekle','4')">4</button>
+    <button class="np-btn" onclick="np('ekle','5')">5</button>
+    <button class="np-btn" onclick="np('ekle','6')">6</button>
+    <button class="np-btn" onclick="np('ekle','7')">7</button>
+    <button class="np-btn" onclick="np('ekle','8')">8</button>
+    <button class="np-btn" onclick="np('ekle','9')">9</button>
+    <button class="np-btn" onclick="np('ekle',',')">","</button>
+    <button class="np-btn" onclick="np('ekle','0')">0</button>
+    <button class="np-btn sil" onclick="np('ekle','sil')">⌫</button>
   </div>
-  <button class="kaydet-btn" id="kaydet-btn" onclick="islemEkle()">İşlemi Kaydet</button>
+  <button class="ana-btn" id="kaydet-btn" onclick="islemEkle()">İşlemi Kaydet</button>
 </div>
 
+<!-- KASA SAYIMI -->
+<div class="ekran" id="ekran-sayim">
+  <div style="margin-top:14px;">
+    <div class="bolum-bas">Sayımı Yapan</div>
+    <div class="kullanici-grid" id="kullanici-grid-sayim"></div>
+  </div>
+
+  <div class="sayim-bilgi-kart">
+    <div class="sayim-bilgi-satir">
+      <span class="label">Sistem bakiyesi</span>
+      <span class="val" id="sayim-sistem-bakiye">—</span>
+    </div>
+    <div class="sayim-bilgi-satir">
+      <span class="label">Sayılan tutar</span>
+      <span class="val" id="sayim-sayilan-goster">0,00 ₺</span>
+    </div>
+  </div>
+
+  <div class="fark-kart" id="fark-kart">
+    <div class="fark-label" id="fark-label">Fark</div>
+    <div class="fark-tutar" id="fark-tutar">—</div>
+  </div>
+
+  <div class="tutar-goster" id="sayim-tutar-goster" style="font-size:32px;">0,00 ₺</div>
+  <div class="numpad">
+    <button class="np-btn" onclick="np('sayim','1')">1</button>
+    <button class="np-btn" onclick="np('sayim','2')">2</button>
+    <button class="np-btn" onclick="np('sayim','3')">3</button>
+    <button class="np-btn" onclick="np('sayim','4')">4</button>
+    <button class="np-btn" onclick="np('sayim','5')">5</button>
+    <button class="np-btn" onclick="np('sayim','6')">6</button>
+    <button class="np-btn" onclick="np('sayim','7')">7</button>
+    <button class="np-btn" onclick="np('sayim','8')">8</button>
+    <button class="np-btn" onclick="np('sayim','9')">9</button>
+    <button class="np-btn" onclick="np('sayim',',')">","</button>
+    <button class="np-btn" onclick="np('sayim','0')">0</button>
+    <button class="np-btn sil" onclick="np('sayim','sil')">⌫</button>
+  </div>
+  <button class="ana-btn sari" id="sayim-btn" onclick="sayimYap()">Sayımı Kaydet</button>
+</div>
+
+<!-- İŞLEMLER -->
 <div class="ekran" id="ekran-islemler">
   <div class="filtre-row">
     <button class="filtre-pill aktif" onclick="filtrele('hepsi', this)">Hepsi</button>
     <button class="filtre-pill" onclick="filtrele('giris', this)">Giriş</button>
     <button class="filtre-pill" onclick="filtrele('cikis', this)">Çıkış</button>
+    <button class="filtre-pill" onclick="filtrele('sayim', this)">Sayım</button>
     <button class="filtre-pill" onclick="filtrele('Bora', this)">Bora</button>
     <button class="filtre-pill" onclick="filtrele('Kürşat', this)">Kürşat</button>
     <button class="filtre-pill" onclick="filtrele('Özlem', this)">Özlem</button>
     <button class="filtre-pill" onclick="filtrele('Zeynep', this)">Zeynep</button>
   </div>
-  <div id="islem-liste"><div class="yukleniyor"><div class="spinner"></div>Veriler yükleniyor...</div></div>
+  <div id="islem-liste"><div class="yukleniyor"><div class="spinner"></div>Yükleniyor...</div></div>
 </div>
 
 <div class="toast" id="toast"></div>
@@ -184,11 +256,12 @@ const KULLANICILAR = ['Bora', 'Kürşat', 'Özlem', 'Zeynep'];
 const INITIALS = { 'Bora':'BO', 'Kürşat':'KÜ', 'Özlem':'ÖZ', 'Zeynep':'ZE' };
 
 let islemler = {};
-let seciliKullanici = null;
+let seciliKullanici = { ekle: null, sayim: null };
 let seciliTip = 'giris';
-let tutarStr = '';
+let tutarStr = { ekle: '', sayim: '' };
 let filtreMod = 'hepsi';
 let baglanti = false;
+let mevcutBakiye = 0;
 
 db.ref('.info/connected').on('value', snap => {
   baglanti = !!snap.val();
@@ -207,6 +280,7 @@ islemlerRef.on('value', snap => {
   islemler = snap.val() || {};
   ozetGuncelle();
   islemleriRender();
+  sayimEkranGuncelle();
   document.getElementById('son-guncelleme').textContent =
     'Güncellendi: ' + new Date().toLocaleTimeString('tr-TR', { hour:'2-digit', minute:'2-digit' });
 });
@@ -225,20 +299,61 @@ function ozetGuncelle() {
   const liste = Object.values(islemler);
   const giris = liste.filter(i => i.tip === 'giris').reduce((a, i) => a + i.miktar, 0);
   const cikis = liste.filter(i => i.tip === 'cikis').reduce((a, i) => a + i.miktar, 0);
+  mevcutBakiye = giris - cikis;
   document.getElementById('ozet-giris').textContent = paraFormatla(giris);
   document.getElementById('ozet-cikis').textContent = paraFormatla(cikis);
-  document.getElementById('kasa-tutar').textContent = paraFormatla(giris - cikis);
+  document.getElementById('kasa-tutar').textContent = paraFormatla(mevcutBakiye);
 }
 
-function kullanicilariRender() {
-  document.getElementById('kullanici-grid').innerHTML = KULLANICILAR.map(k => `
-    <div class="kullanici-btn${seciliKullanici === k ? ' secili' : ''}" onclick="kullanicuSec('${k}')">
+function sayimEkranGuncelle() {
+  document.getElementById('sayim-sistem-bakiye').textContent = paraFormatla(mevcutBakiye);
+  sayimFarkGuncelle();
+}
+
+function sayimFarkGuncelle() {
+  const sayilanNum = parseFloat((tutarStr.sayim || '0').replace(',', '.')) || 0;
+  document.getElementById('sayim-sayilan-goster').textContent = paraFormatla(sayilanNum);
+  document.getElementById('sayim-tutar-goster').textContent = paraFormatla(sayilanNum);
+
+  if (tutarStr.sayim === '') {
+    document.getElementById('fark-kart').className = 'fark-kart';
+    return;
+  }
+
+  const fark = sayilanNum - mevcutBakiye;
+  const farkKart = document.getElementById('fark-kart');
+  const farkLabel = document.getElementById('fark-label');
+  const farkTutar = document.getElementById('fark-tutar');
+
+  farkKart.classList.add('goster');
+  if (Math.abs(fark) < 0.01) {
+    farkKart.className = 'fark-kart goster sifir';
+    farkLabel.textContent = 'Fark yok — kasa tam';
+    farkTutar.textContent = '0,00 ₺';
+  } else if (fark > 0) {
+    farkKart.className = 'fark-kart goster pozitif';
+    farkLabel.textContent = 'Fazla — sisteme giriş eklenecek';
+    farkTutar.textContent = '+' + paraFormatla(fark);
+  } else {
+    farkKart.className = 'fark-kart goster negatif';
+    farkLabel.textContent = 'Eksik — sistemden çıkış eklenecek';
+    farkTutar.textContent = '−' + paraFormatla(Math.abs(fark));
+  }
+}
+
+function kullanicilariRender(ekran) {
+  const grid = document.getElementById('kullanici-grid-' + ekran);
+  grid.innerHTML = KULLANICILAR.map(k => `
+    <div class="kullanici-btn${seciliKullanici[ekran] === k ? ' secili' : ''}" onclick="kullanicuSec('${ekran}','${k}')">
       <div class="avatar">${INITIALS[k]}</div>
       <div class="kullanici-adi">${k}</div>
     </div>`).join('');
 }
 
-function kullanicuSec(k) { seciliKullanici = k; kullanicilariRender(); }
+function kullanicuSec(ekran, k) {
+  seciliKullanici[ekran] = k;
+  kullanicilariRender(ekran);
+}
 
 function tipSec(t) {
   seciliTip = t;
@@ -246,36 +361,74 @@ function tipSec(t) {
   document.getElementById('btn-cikis').className = 'tip-btn' + (t === 'cikis' ? ' secili-cikis' : '');
 }
 
-function np(v) {
-  if (v === 'sil') { tutarStr = tutarStr.slice(0, -1); }
-  else if (v === ',') { if (!tutarStr.includes(',') && tutarStr.length > 0) tutarStr += ','; }
+function np(ekran, v) {
+  let str = tutarStr[ekran];
+  if (v === 'sil') { str = str.slice(0, -1); }
+  else if (v === ',') { if (!str.includes(',') && str.length > 0) str += ','; }
   else {
-    const p = tutarStr.split(',');
+    const p = str.split(',');
     if (p.length === 2 && p[1].length >= 2) return;
-    tutarStr = tutarStr === '0' ? v : tutarStr + v;
+    str = str === '0' ? v : str + v;
   }
-  const num = parseFloat((tutarStr || '0').replace(',', '.'));
-  document.getElementById('tutar-goster').textContent = paraFormatla(isNaN(num) ? 0 : num);
+  tutarStr[ekran] = str;
+
+  const num = parseFloat((str || '0').replace(',', '.'));
+  if (ekran === 'ekle') {
+    document.getElementById('tutar-goster').textContent = paraFormatla(isNaN(num) ? 0 : num);
+  } else {
+    sayimFarkGuncelle();
+  }
 }
 
 function islemEkle() {
-  if (!seciliKullanici) { toast('İşlem sahibini seçin'); return; }
-  const num = parseFloat((tutarStr || '0').replace(',', '.'));
+  if (!seciliKullanici.ekle) { toast('İşlem sahibini seçin'); return; }
+  const num = parseFloat((tutarStr.ekle || '0').replace(',', '.'));
   if (!num || num <= 0) { toast('Tutar girin'); return; }
   if (!baglanti) { toast('İnternet bağlantısı yok'); return; }
   const btn = document.getElementById('kaydet-btn');
   btn.disabled = true;
   islemlerRef.push({
     tarih: new Date().toISOString(),
-    sahip: seciliKullanici,
+    sahip: seciliKullanici.ekle,
     tip: seciliTip,
     miktar: num,
     aciklama: document.getElementById('aciklama-input').value.trim()
   }).then(() => {
-    tutarStr = '';
+    tutarStr.ekle = '';
     document.getElementById('aciklama-input').value = '';
     document.getElementById('tutar-goster').textContent = '0,00 ₺';
     toast('Kaydedildi ✓');
+  }).catch(() => toast('Hata — tekrar dene')).finally(() => { btn.disabled = false; });
+}
+
+function sayimYap() {
+  if (!seciliKullanici.sayim) { toast('Sayımı yapanı seçin'); return; }
+  const sayilan = parseFloat((tutarStr.sayim || '0').replace(',', '.')) || 0;
+  if (!tutarStr.sayim) { toast('Sayılan tutarı girin'); return; }
+  if (!baglanti) { toast('İnternet bağlantısı yok'); return; }
+
+  const fark = sayilan - mevcutBakiye;
+  if (Math.abs(fark) < 0.01) { toast('Kasa tam — fark yok, kayıt gerekmez'); return; }
+
+  const tip = fark > 0 ? 'giris' : 'cikis';
+  const aciklama = 'Kasa Sayımı — ' + seciliKullanici.sayim +
+    ' (Sistem: ' + paraFormatla(mevcutBakiye) + ', Sayılan: ' + paraFormatla(sayilan) + ')';
+
+  const btn = document.getElementById('sayim-btn');
+  btn.disabled = true;
+
+  islemlerRef.push({
+    tarih: new Date().toISOString(),
+    sahip: seciliKullanici.sayim,
+    tip: tip,
+    miktar: Math.abs(fark),
+    aciklama: aciklama,
+    kayitTipi: 'sayim'
+  }).then(() => {
+    tutarStr.sayim = '';
+    document.getElementById('fark-kart').className = 'fark-kart';
+    sayimFarkGuncelle();
+    toast('Sayım kaydedildi ✓');
   }).catch(() => toast('Hata — tekrar dene')).finally(() => { btn.disabled = false; });
 }
 
@@ -287,24 +440,31 @@ function islemSil(id) {
 function islemleriRender() {
   const liste = document.getElementById('islem-liste');
   let g = Object.entries(islemler).map(([id, v]) => ({ id, ...v }));
-  if (filtreMod === 'giris') g = g.filter(i => i.tip === 'giris');
-  else if (filtreMod === 'cikis') g = g.filter(i => i.tip === 'cikis');
+  if (filtreMod === 'giris') g = g.filter(i => i.tip === 'giris' && !i.kayitTipi);
+  else if (filtreMod === 'cikis') g = g.filter(i => i.tip === 'cikis' && !i.kayitTipi);
+  else if (filtreMod === 'sayim') g = g.filter(i => i.kayitTipi === 'sayim');
   else if (KULLANICILAR.includes(filtreMod)) g = g.filter(i => i.sahip === filtreMod);
   g.sort((a, b) => new Date(b.tarih) - new Date(a.tarih));
   if (!g.length) { liste.innerHTML = '<div class="bos">Henüz işlem yok.</div>'; return; }
-  liste.innerHTML = g.map(i => `
+  liste.innerHTML = g.map(i => {
+    const ikonClass = i.kayitTipi === 'sayim' ? 'ikon-sayim' : (i.tip === 'giris' ? 'ikon-giris' : 'ikon-cikis');
+    const ikonIcerik = i.kayitTipi === 'sayim' ? 'SAY' : INITIALS[i.sahip] || '?';
+    const tutarClass = i.tip === 'giris' ? 'renk-giris' : 'renk-cikis';
+    const tutarIsaret = i.tip === 'giris' ? '+' : '−';
+    return `
     <div class="islem-kart">
-      <div class="islem-ikon ikon-${i.tip}">${INITIALS[i.sahip]||'?'}</div>
+      <div class="islem-ikon ${ikonClass}">${ikonIcerik}</div>
       <div class="islem-bilgi">
-        <div class="islem-sahip">${i.sahip}</div>
-        <div class="islem-aciklama">${i.aciklama||'—'}</div>
+        <div class="islem-sahip">${i.sahip}${i.kayitTipi === 'sayim' ? ' · Sayım' : ''}</div>
+        <div class="islem-aciklama">${i.aciklama || '—'}</div>
         <div class="islem-tarih">${tarihFormatla(i.tarih)}</div>
       </div>
       <div class="islem-sag">
-        <div class="islem-tutar ${i.tip==='giris'?'renk-giris':'renk-cikis'}">${i.tip==='giris'?'+':'−'} ${paraFormatla(i.miktar)}</div>
+        <div class="islem-tutar ${tutarClass}">${tutarIsaret} ${paraFormatla(i.miktar)}</div>
         <div class="islem-sil" onclick="islemSil('${i.id}')">sil</div>
       </div>
-    </div>`).join('');
+    </div>`;
+  }).join('');
 }
 
 function filtrele(f, el) {
@@ -318,17 +478,20 @@ function sekmeGec(s, el) {
   document.querySelectorAll('.sekme').forEach(e => e.classList.remove('aktif'));
   el.classList.add('aktif');
   document.getElementById('ekran-ekle').classList.toggle('aktif', s === 'ekle');
+  document.getElementById('ekran-sayim').classList.toggle('aktif', s === 'sayim');
   document.getElementById('ekran-islemler').classList.toggle('aktif', s === 'islemler');
+  if (s === 'sayim') sayimEkranGuncelle();
 }
 
 function toast(msg) {
   const t = document.getElementById('toast');
   t.textContent = msg;
   t.classList.add('goster');
-  setTimeout(() => t.classList.remove('goster'), 2200);
+  setTimeout(() => t.classList.remove('goster'), 2500);
 }
 
-kullanicilariRender();
+kullanicilariRender('ekle');
+kullanicilariRender('sayim');
 </script>
 </body>
 </html>
