@@ -283,7 +283,7 @@ body {
     <button class="filtre-pill" onclick="nakitFiltrele('Bora', this)">Bora</button>
     <button class="filtre-pill" onclick="nakitFiltrele('Kürşat', this)">Kürşat</button>
     <button class="filtre-pill" onclick="nakitFiltrele('Özlem', this)">Özlem</button>
-    <button class="filtre-pill" onclick="nakitFiltrele('Zeynep', this)">Zeynep</button>
+    <button class="filtre-pill" onclick="nakitFiltrele('Nasim', this)">Nasim</button>
   </div>
   <div id="nakit-islem-liste"><div class="yukleniyor"><div class="spinner"></div>Yükleniyor...</div></div>
 </div>
@@ -343,7 +343,7 @@ body {
     <button class="filtre-pill" onclick="posFiltrele('Bora', this)">Bora</button>
     <button class="filtre-pill" onclick="posFiltrele('Kürşat', this)">Kürşat</button>
     <button class="filtre-pill" onclick="posFiltrele('Özlem', this)">Özlem</button>
-    <button class="filtre-pill" onclick="posFiltrele('Zeynep', this)">Zeynep</button>
+    <button class="filtre-pill" onclick="posFiltrele('Nasim', this)">Nasim</button>
   </div>
   <div id="pos-islem-liste"><div class="yukleniyor"><div class="spinner"></div>Yükleniyor...</div></div>
 </div>
@@ -369,8 +369,8 @@ const nakitRef = db.ref('nakit');
 const posRef   = db.ref('pos');
 const posSifirRef = db.ref('pos_sifirlamalar');
 
-const KULLANICILAR = ['Bora', 'Kürşat', 'Özlem', 'Zeynep'];
-const INITIALS = { 'Bora':'BO', 'Kürşat':'KÜ', 'Özlem':'ÖZ', 'Zeynep':'ZE' };
+const KULLANICILAR = ['Bora', 'Kürşat', 'Özlem', 'Nasim'];
+const INITIALS = { 'Bora':'BO', 'Kürşat':'KÜ', 'Özlem':'ÖZ', 'Nasim':'NA' };
 
 let nakitIslemler = {};
 let posIslemler   = {};
